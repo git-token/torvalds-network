@@ -1,0 +1,15 @@
+version: '3.0'
+volumes:
+  torvalds-gittoken-volume:
+services:
+  torvalds_authority_gittoken:
+    ports:
+      - 8180:8180
+      - 8545:8545
+      - 8546:8546
+      - 30303:30303
+    build:
+      context: ./authority_nodes/gittoken/.
+    volumes:
+      - torvalds-gittoken-volume:/root/parity
+    command: --config /root/parity/config.toml
